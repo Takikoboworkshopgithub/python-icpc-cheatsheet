@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python 競技プログラミング チートシート</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0056b3;
+      }
+      pre {
+        background-color: #eee;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      .copy-btn:hover {
+        background-color: #0056b3;
+      }
+      .section {
+        margin-bottom: 30px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Python 競技プログラミング チートシート</h1>
+
+    <p>
+      このチートシートは、競技プログラミングでよく使用されるPythonの関数やスニペットをまとめたものです。必要なコードを簡単にコピー＆ペーストしてご利用いただけます。
+    </p>
+
+    <div class="section">
+      <h2>1. 基本データ型と操作 (Basic Data Types and Operations)</h2>
+      <h3>1.1. list</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`a.append(x)`</td>
+            <td>末尾に追加</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`a.pop()`</td>
+            <td>末尾から削除</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`a.insert(i, x)`</td>
+            <td>i番目に挿入</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`a.pop(i)`</td>
+            <td>i番目を削除</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`a.remove(x)`</td>
+            <td>値xを削除</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`a.sort()`</td>
+            <td>昇順に並び替え</td>
+            <td>O(N log N)</td>
+          </tr>
+          <tr>
+            <td>`a.reverse()`</td>
+            <td>リストの反転</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`x in a`</td>
+            <td>存在確認</td>
+            <td>O(N)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.2. set</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`s.add(x)`</td>
+            <td>要素を追加</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`s.discard(x)`</td>
+            <td>要素を削除（なければ何もしない）</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`s.remove(x)`</td>
+            <td>要素を削除（なければエラー）</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`x in s`</td>
+            <td>存在確認</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`len(s)`</td>
+            <td>要素数取得</td>
+            <td>O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.3. dict</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`d[key] = value`</td>
+            <td>追加・更新</td>
+            <td>O(1)（平均）</td>
+          </tr>
+          <tr>
+            <td>`d.get(key, 0)`</td>
+            <td>存在しない場合のデフォルト取得</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`del d[key]`</td>
+            <td>キーを削除</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`key in d`</td>
+            <td>キー存在確認</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`len(d)`</td>
+            <td>キーの数</td>
+            <td>O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.4. tuple</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`t = (1, 2, 3)`</td>
+            <td>宣言</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`t[i]`</td>
+            <td>i番目にアクセス</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`(x, y) = t`</td>
+            <td>アンパック</td>
+            <td>O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.5. str</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`s[i]`</td>
+            <td>i文字目アクセス</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`s[::-1]`</td>
+            <td>反転</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`s.split()`</td>
+            <td>空白で分割</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`s.replace(a, b)`</td>
+            <td>文字列の置換</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>`"a" in s`</td>
+            <td>部分一致</td>
+            <td>O(N)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.6. int</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`str(x)`</td>
+            <td>文字列化</td>
+            <td>O(D)（D: 桁数）</td>
+          </tr>
+          <tr>
+            <td>`int(s)`</td>
+            <td>数値化</td>
+            <td>O(D)</td>
+          </tr>
+          <tr>
+            <td>`bin(x)`</td>
+            <td>2進数文字列化</td>
+            <td>O(log x)</td>
+          </tr>
+          <tr>
+            <td>`divmod(x, y)`</td>
+            <td>商と余り同時取得</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`abs(x)`</td>
+            <td>絶対値</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`pow(x, y, mod)`</td>
+            <td>べき乗（mod付き）</td>
+            <td>O(log y)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.7. float</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>内容</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`round(f, k)`</td>
+            <td>小数第k位で四捨五入</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`int(f)`</td>
+            <td>小数切り捨て</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`math.floor(f)`</td>
+            <td>小さい整数へ</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>`math.ceil(f)`</td>
+            <td>大きい整数へ</td>
+            <td>O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.8. 変換操作 (Conversion Operations)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>目的</th>
+            <th>方法</th>
+            <th>計算量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>数 → 文字列</td>
+            <td>`str(x)`</td>
+            <td>O(D)</td>
+          </tr>
+          <tr>
+            <td>文字列 → 数</td>
+            <td>`int(s)`</td>
+            <td>O(D)</td>
+          </tr>
+          <tr>
+            <td>リスト → 集合</td>
+            <td>`set(lst)`</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>集合 → リスト</td>
+            <td>`list(set)`</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>文字列 → リスト</td>
+            <td>`list("abc")`</td>
+            <td>O(N)</td>
+          </tr>
+          <tr>
+            <td>リスト → 文字列</td>
+            <td>`"".join(list)`</td>
+            <td>O(N)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>2. 標準ライブラリの活用 (Standard Library Utilities)</h2>
+      <h3>2.1. `collections` モジュール</h3>
+      <h4>2.1.1. `defaultdict`</h4>
+      <p>キーが存在しないときに自動で初期値を作る辞書。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from collections import defaultdict
+
+dd = defaultdict(int)  # int() → 0が初期値
+dd['apple'] += 1      # 存在しなくてもエラーにならず0+1になる
+print(dd['apple'])    # 1</code></pre>
+
+      <h4>2.1.2. `deque`</h4>
+      <p>両端キュー（高速な両端挿入・削除が可能）。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from collections import deque
+
+dq = deque([1, 2, 3])
+dq.append(4)         # 右端に追加
+dq.appendleft(0)     # 左端に追加
+print(dq)            # deque([0, 1, 2, 3, 4])
+dq.pop()             # 右端削除
+dq.popleft()         # 左端削除</code></pre>
+
+      <h4>2.1.3. `Counter`</h4>
+      <p>要素の出現回数を数える辞書。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from collections import Counter
+
+a = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']
+counter = Counter(a)
+print(counter['apple'])  # 3
+print(counter.most_common(2))  # [('apple', 3), ('banana', 2)]</code></pre>
+
+      <h3>2.2. `decimal` モジュール</h3>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from decimal import Decimal, ROUND_HALF_UP
+
+# 小数点の丸め処理は my_round 関数を参照</code></pre>
+
+      <h3>2.3. `functools.lru_cache`</h3>
+      <p>再帰関数のメモ化に利用。`memo={}` などで代用可能だが、オーバーロード時に便利。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fibo(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibo(n - 1) + fibo(n - 2)
+
+# print(fibo(35))</code></pre>
+
+      <h3>2.4. `heapq` モジュール</h3>
+      <p>Dijkstra法などで使用。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from heapq import heapify, heappop, heappush
+# dijkstra 関数で使用例あり</code></pre>
+
+      <h3>2.5. `bisect` モジュール</h3>
+      <p>ソート済み配列での挿入位置検索。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from bisect import bisect, bisect_left, bisect_right
+
+a = [1, 2, 4, 4, 5]
+
+# bisect_left：値xを挿入する際、左側の挿入位置（同じ値があれば一番左）
+pos_left = bisect_left(a, 4)  # 2
+
+# bisect_right（またはbisect）：値xを挿入する際、右側の挿入位置（同じ値があれば一番右）
+pos_right = bisect_right(a, 4)  # 4
+
+print(pos_left, pos_right)
+
+# 使いどころ：ソート済み配列に値を効率的に挿入したり、範囲内の個数を数えたりできる
+
+# 例：配列内の4の個数を数える
+count_4 = bisect_right(a, 4) - bisect_left(a, 4)  # 2
+
+print(count_4)</code></pre>
+
+      <h3>2.6. `itertools` モジュール</h3>
+      <h4>2.6.1. `accumulate`</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from itertools import accumulate
+
+a = [1, 2, 3, 4, 5]
+b = list(accumulate(a)) # [1, 3, 6, 10, 15]</code></pre>
+
+      <h4>2.6.2. `product`</h4>
+      <p>複数のイテラブルのデカルト積を計算。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from itertools import product
+
+# 例1: 2進数3桁のすべての組み合わせ
+for p in product([0,1],repeat=3):
+    print(p)
+# 出力:
+# (0, 0, 0)
+# (0, 0, 1)
+# (0, 1, 0)
+# (0, 1, 1)
+# (1, 0, 0)
+# (1, 0, 1)
+# (1, 1, 0)
+# (1, 1, 1)
+
+# 例2: 色とサイズの組み合わせ
+colors = ['red', 'blue']
+sizes = ['S', 'M', 'L']
+
+for c, s in product(colors, sizes):
+    print(c, s)
+# 出力例:
+# red S
+# red M
+# red L
+# blue S
+# blue M
+# blue L</code></pre>
+
+      <h4>2.6.3. `groupby`</h4>
+      <p>連続する要素をグループ化。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from itertools import groupby
+
+# run_length_encoding 関数で使用例あり</code></pre>
+
+      <h3>2.7. `string` モジュール</h3>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import string
+
+print(string.ascii_lowercase)   # abcdefghijklmnopqrstuvwxyz
+print(string.ascii_uppercase)   # ABCDEFGHIJKLMNOPQRSTUVWXYZ
+print(string.ascii_letters)     # abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+print(string.digits)            # 0123456789
+print(string.hexdigits)         # 0123456789abcdefABCDEF</code></pre>
+
+      <h3>2.8. `math` モジュール</h3>
+      <h4>2.8.1. 丸め関数</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>関数</th>
+            <th>内容</th>
+            <th>計算量</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`math.floor(x)`</td>
+            <td>$\lfloor x \rfloor$ 下方向に丸める</td>
+            <td>O(1)</td>
+            <td>`int(x)` との違いに注意</td>
+          </tr>
+          <tr>
+            <td>`math.ceil(x)`</td>
+            <td>$\lceil x \rceil$ 上方向に丸める</td>
+            <td>O(1)</td>
+            <td>切り上げ</td>
+          </tr>
+          <tr>
+            <td>`math.trunc(x)`</td>
+            <td>0方向へ丸める</td>
+            <td>O(1)</td>
+            <td>小数点以下を切り捨て</td>
+          </tr>
+          <tr>
+            <td>`round(x)`</td>
+            <td>四捨五入（偶数丸め）</td>
+            <td>O(1)</td>
+            <td>Pythonの組み込みと同様</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>2.8.2. 指数・対数関数</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>関数</th>
+            <th>内容</th>
+            <th>計算量</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`math.sqrt(x)`</td>
+            <td>$\sqrt{x}$（平方根）</td>
+            <td>O(1)</td>
+            <td>`x ** 0.5` より正確</td>
+          </tr>
+          <tr>
+            <td>`math.pow(x, y)`</td>
+            <td>$x^y$（浮動小数）</td>
+            <td>O(1)</td>
+            <td>`**` より遅く精度高</td>
+          </tr>
+          <tr>
+            <td>`pow(x, y, m)`</td>
+            <td>$x^y \pmod m$</td>
+            <td>O(log y)</td>
+            <td>組み込み関数（整数）</td>
+          </tr>
+          <tr>
+            <td>`math.log(x)`</td>
+            <td>$\ln(x)$（自然対数）</td>
+            <td>O(1)</td>
+            <td>x > 0</td>
+          </tr>
+          <tr>
+            <td>`math.log10(x)`</td>
+            <td>$\log_{10}(x)$</td>
+            <td>O(1)</td>
+            <td>10進対数</td>
+          </tr>
+          <tr>
+            <td>`math.log2(x)`</td>
+            <td>$\log_2(x)$</td>
+            <td>O(1)</td>
+            <td>x のビット長に関係</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>2.8.3. 整数処理</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>関数</th>
+            <th>内容</th>
+            <th>計算量</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>`math.gcd(x, y)`</td>
+            <td>最大公約数</td>
+            <td>O(log min(x,y))</td>
+            <td>3項以上は `functools.reduce` と併用</td>
+          </tr>
+          <tr>
+            <td>`math.lcm(x, y)`</td>
+            <td>最小公倍数</td>
+            <td>O(log min(x,y))</td>
+            <td>Python 3.9～</td>
+          </tr>
+          <tr>
+            <td>`math.isqrt(x)`</td>
+            <td>$\lfloor \sqrt{x} \rfloor$の整数部分</td>
+            <td>O(log x)</td>
+            <td>小数を返さない</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2.9. `sys` モジュール</h3>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import sys
+
+# 再帰関数の呼び出し上限を増やす
+sys.setrecursionlimit(10**7)
+
+# 多倍長整数対応 (Python 3.11以降でデフォルト0)
+sys.set_int_max_str_digits(0)
+
+# 高速な入力
+# input = sys.stdin.readline().rstrip('\n')</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>3. ユーティリティ関数 (Utility Functions)</h2>
+      <h3>3.1. 入出力関連 (Input/Output Helpers)</h3>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import sys
+
+# 高速入力の基本設定
+def input(): return sys.stdin.readline().rstrip('\n')
+
+# 1つの整数の受け取り
+def i(): return int(input())
+
+# スペースで区切られた複数の整数をそれぞれ+nして受け取り
+def mi(n = 0): return map(lambda x: int(x)+n, input().split())
+
+# スペースで区切られた複数の整数をそれぞれ+nしてリストで受け取り
+def li(n = 0): return list(map(lambda x: int(x)+n, input().split()))
+
+# 変数"ok"がTrueなら"Yes"、Falseなら"No"を出力
+def Yes(ok): return print("Yes" if ok else "No")</code></pre>
+
+      <h3>3.2. 進数変換 (Base Conversion)</h3>
+      <h4>3.2.1. 指定された基数に変換</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def base_to(num, base):
+    """
+    指定された基数(base)に数(num)を変換し、桁のリストを返す。
+    例: base_to(5, 2) -> ['1', '0', '1'] (2進数)
+    """
+    if num == 0: return ['0']
+    res_list = []
+    while num:
+        res_list.append(str(num % base))
+        num //= base
+    return res_list[::-1]</code></pre>
+
+      <h4>3.2.2. 指定された基数の数値を10進数に変換</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def base_from(s, base):
+    """
+    指定された基数(base)の文字列(s)またはリスト/タプルを10進数に変換。
+    例: base_from('1001', 2) -> 9
+        base_from(['1','0','0','1'], 2) -> 9
+    """
+    if isinstance(s, str):
+        return int(s, base)
+    elif isinstance(s, (list, tuple)):
+        res = 0
+        for d in s:
+            res = res * base + int(d)
+        return res
+    else:
+        raise TypeError("base_from の引数は str または list/tuple でなければなりません")</code></pre>
+
+      <h3>3.3. 数値操作 (Numeric Operations)</h3>
+      <h4>3.3.1. クランプ (Clamp)</h4>
+      <p>数値を指定された範囲内に調整。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def clamp(num, smallest, largest):
+    """
+    numがsmallest以下ならsmallestに、largest以上ならlargestに調整。
+    """
+    return max(smallest, min(num, largest))</code></pre>
+
+      <h4>3.3.2. 桁数カウント (Count Digits)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import math
+
+def count_digit(num):
+    """
+    整数numの桁数を返す。
+    """
+    return math.floor(math.log10(num)) + 1 if num > 0 else 1</code></pre>
+
+      <h4>3.3.3. 階乗と逆元 (Factorial and Inverse)</h4>
+      <p>組み合わせ計算などで使用します。事前に `precompute_factorials()` を呼び出す必要があります。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code># n! mod p を計算するための関数群
+# 組み合わせnCr mod p
+# 事前にfact, invfact, invを計算しておく
+
+# max_nは最大値、MODは法
+MOD = 10**9 + 7
+MAX_N = 2 * 10**5 # 必要に応じて変更
+
+fact = [1] * (MAX_N + 1)
+invfact = [1] * (MAX_N + 1)
+inv = [1] * (MAX_N + 1)
+
+def precompute_factorials():
+    for i in range(2, MAX_N + 1):
+        fact[i] = (fact[i-1] * i) % MOD
+        inv[i] = MOD - (MOD // i) * inv[MOD % i] % MOD
+        invfact[i] = (invfact[i-1] * inv[i]) % MOD
+
+# precompute_factorials() # 必要な場所で一度だけ呼び出す
+
+def nCr_mod_p(n, r):
+    if r < 0 or r > n:
+        return 0
+    return fact[n] * invfact[r] % MOD * invfact[n-r] % MOD</code></pre>
+
+      <h4>3.3.4. 繰り返し二乗法 (ModPow)</h4>
+      <p>$a^b \pmod{m}$ を高速に計算します。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def mod_pow(a, b, m):
+    res = 1
+    a %= m
+    while b > 0:
+        if b % 2 == 1:
+            res = (res * a) % m
+        a = (a * a) % m
+        b //= 2
+    return res</code></pre>
+
+      <h4>3.3.5. 偶数丸めではない四捨五入 (Custom Round)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from decimal import Decimal, ROUND_HALF_UP
+
+def my_round(num, d):
+    """
+    偶数丸めではない四捨五入。dは四捨五入の桁数(ex:0は1の位、2は100の位、-2は0.01の位)
+    例:
+    print(my_round(127,  0))   # → 130（1の位で四捨五入）
+    print(my_round(127,  2))   # → 100（100の位で四捨五入）
+    print(my_round(3.146, -2)) # → 3.15（小数第2位）
+    print(my_round(3.144, -2)) # → 3.14
+    """
+    if d <= 0:
+        return Decimal(str(num)).quantize(Decimal(str(10**d)), rounding=ROUND_HALF_UP)
+    else:
+        p = Decimal(str(num)).quantize(Decimal("1E" + str(d)), rounding=ROUND_HALF_UP)
+        return p.quantize(Decimal(1))</code></pre>
+
+      <h3>3.4. 幾何学 (Geometry)</h3>
+      <h4>3.4.1. マンハッタン距離 (Manhattan Distance)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import math
+from decimal import Decimal
+
+def Manhattan_distance(ax,ay,bx,by):
+    """
+    座標a(ax,ay)とb(bx,by)の2点間距離（ユークリッド距離）を返す。
+    ※ 関数名と内容が一致していません。これはユークリッド距離です。
+    """
+    return math.sqrt(Decimal((ax-bx)**2 + (ay-by)**2))</code></pre>
+      **注記**: 上記の `Manhattan_distance` 関数は、実際にはユークリッド距離を計算しています。マンハッタン距離は
+      $|ax-bx| + |ay-by|$ です。
+
+      <h4>3.4.2. 線分交差判定 (Check Intersection)</h4>
+      <p>数直線上の線分abと線分cdの共通部分があるかどうかチェック。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def check_intersection(a,b,c,d, flg_edge=False):
+    """
+    数直線上の線分abと線分cdの共通部分があるかどうかチェック。
+    flg_edgeがTrueなら端点のみの共有を含む。
+    """
+    if flg_edge:
+        return (max(a,c) <= min(b,d))
+    else:
+        return (max(a,c) < min(b,d))</code></pre>
+
+      <h4>3.4.3. 角度180度超判定 (Is Over 180 Degree)</h4>
+      <p>ベクトルaとベクトルbの角度が180°より大きいか判定。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def is_over_180degree(ax,ay,bx,by):
+    """
+    ベクトルa(ax,ay)とベクトルb(bx,by)の角度(aから反時計回りに)が180°より大きければ1、180°ちょうどなら2、それ以外は0を返す。
+    """
+    if ax*by - bx*ay < 0:
+        return 1
+    elif ax*by - bx*ay == 0:
+        return 2
+    return 0</code></pre>
+
+      <h4>3.4.4. 三角形の面積 (Triangle Area)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def triangle_area(ax,ay,bx,by,cx,cy):
+    """
+    3点a(ax,ay),b(bx,by),c(x,cy)からなる三角形の面積を返す。
+    """
+    return abs((bx-ax)*(cy-ay) - (cx-ax)*(by-ay)) / 2</code></pre>
+
+      <h3>3.5. 配列/リスト操作 (Array/List Operations)</h3>
+      <h4>3.5.1. 最長増加部分列 (Longest Increasing Subsequence - LIS)</h4>
+      <p>計算量 O(N log N)。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from bisect import bisect_left
+
+def longest_increasing_subsequence(A, INF=10**9):
+    """
+    配列Aの最長増加部分列LISのリストを返す。計算量O(N*logN)。
+    例: A = [3, 1, 5, 2, 6, 4, 7]
+        LISの例: [1, 2, 4, 7]
+    """
+    dp = [INF for _ in A]
+    b = [-1 for _ in A]
+    for i in range(len(A)):
+        idx = bisect_left(dp, A[i])
+        dp[idx] = A[i]
+        b[i] = idx + 1
+    l = bisect_left(dp, INF)
+    seq = [0 for i in range(l)]
+    for i in range(len(A)-1, -1, -1):
+        if b[i] == l:
+            l -= 1
+            seq[l] = A[i]
+    return seq</code></pre>
+
+      <h4>3.5.2. 2次元配列の回転 (Rotate 2D List)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def list_turn_right(l):
+    """
+    2次元配列lを時計回りに90度回転。
+    """
+    return list(zip(*l[::-1]))
+
+def list_turn_left(l):
+    """
+    2次元配列lを反時計回りに90度回転。
+    """
+    return list(zip(*l))[::-1]</code></pre>
+
+      <h3>3.6. 素数・約数 (Primes and Divisors)</h3>
+      <h4>3.6.1. 約数列挙 (Divisors)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def divisor(x):
+    """
+    整数xの約数をすべて入れたリストを返す。
+    """
+    divisors = []
+    sqrt_x = int(x ** 0.5)
+    for i in range(1, sqrt_x + 1):
+        if x % i == 0:
+            divisors.append(i)
+            if i != x // i:
+                divisors.append(x // i)
+    return divisors</code></pre>
+
+      <h4>3.6.2. 素数判定 (Is Prime)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def is_prime(i):
+    """
+    iが素数かどうかの判定。
+    """
+    if i <= 1:
+        return False
+    for j in range(2, int(i**0.5) + 1):
+        if i % j == 0:
+            return False
+    return True</code></pre>
+
+      <h4>3.6.3. 素因数分解 (Prime Factorize)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def prime_factorize(num):
+    """
+    numを素因数分解したリストを返す。
+    """
+    factors = []
+    while num % 2 == 0:
+        factors.append(2)
+        num //= 2
+    f = 3
+    while f * f <= num:
+        while num % f == 0:
+            factors.append(f)
+            num //= f
+        f += 2
+    if num > 1:
+        factors.append(num)
+    return factors</code></pre>
+
+      <h4>3.6.4. エラトステネスの篩 (Sieve of Eratosthenes)</h4>
+      <p>計算量 O(N log log N)。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def Sieve_of_Eratosthenes(num):
+    """
+    num以下の素数のリストを返す（ソート済みリスト）。計算量O(n*loglogn)。
+    """
+    res = [True] * (num + 1)
+    res[0] = res[1] = False
+    for i in range(2, int(num**0.5) + 1):
+        if res[i]:
+            for j in range(i*i, num + 1, i):
+                res[j] = False
+    return [i for i in range(num + 1) if res[i]]</code></pre>
+
+      <h3>3.7. その他 (Miscellaneous)</h3>
+      <h4>3.7.1. グリッド内座標チェック (Check In Grid)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def check_in_grid(height,width,i,j):
+    """
+    (i,j)が height x widthのグリッドの中の点か確認。
+    """
+    return ((0 <= i < height) and (0 <= j < width))</code></pre>
+
+      <h4>3.7.2. パスカルの三角形 (Pascal's Triangle)</h4>
+      <p>計算量 O(N^2)。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def pascal_triangle(n):
+    """
+    n段のパスカルの三角形のリストを返す。計算量O(n**2)。
+    """
+    res = []
+    for i in range(1,n+1):
+        if i == 1:
+            tmp = [1]
+        elif i == 2:
+            tmp = [1,1]
+        else:
+            tmp = []
+            for j in range(i):
+                if j == 0 or j == i-1:
+                    tmp.append(1)
+                else:
+                    tmp.append(res[i-2][j-1] + res[i-2][j])
+        res.append(tmp)
+    return res</code></pre>
+
+      <h4>3.7.3. べき乗のリスト (Powers of X)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>def pow_x(x, n):
+    """
+    xの0乗～n乗までのリストを返す。
+    """
+    List_pow = [1]
+    for _ in range(n):
+        List_pow.append(x * List_pow[-1])
+    return List_pow</code></pre>
+
+      <h4>3.7.4. 連長圧縮 (Run Length Encoding)</h4>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from itertools import groupby
+
+def run_length_encoding(str_a: str):
+    """
+    連長圧縮、「ある文字がいくつ連続しているか」を順番に集めたリストを返す。
+    例: s = "aaabbaaaccc"
+        rle = run_length_encoding(s)
+        print(rle)  # [['a', 3], ['b', 2], ['a', 3], ['c', 3]]
+    """
+    res = [[key,len(list(group))] for key,group in groupby(str_a)]
+    return res</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>4. 高度なデータ構造とアルゴリズム (Advanced Data Structures and Algorithms)</h2>
+      <h3>4.1. Union-Find</h3>
+      <p>要素のグループ化や連結判定に用います。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from collections import defaultdict
+
+class UnionFind():
+    #「uf = UnionFind(頂点の数)」で初期化
+    
+    def __init__(self, n):
+        self.n = n
+        self.parents = [-1] * n
+ 
+    def find(self, x): #uf.find(x)
+        #要素xが属するグループの根を返す
+        if self.parents[x] < 0:
+            return x
+        else:
+            self.parents[x] = self.find(self.parents[x])
+            return self.parents[x]
+ 
+    def union(self, x, y): #uf.union(x, y)
+        #要素xが属するグループと要素yが属するグループを併合
+        x = self.find(x)
+        y = self.find(y)
+ 
+        if x == y:
+            return
+ 
+        if self.parents[x] > self.parents[y]:
+            x, y = y, x
+ 
+        self.parents[x] += self.parents[y]
+        self.parents[y] = x
+ 
+    def size(self, x): #uf.size(x)
+        #要素xが属するグループのサイズ(要素数)を返す
+        return -self.parents[self.find(x)]
+ 
+    def same(self, x, y): #uf.same(x,y)
+        #要素x,yが同じグループに属するかどうかを返す
+        return self.find(x) == self.find(y)
+ 
+    def members(self, x): #uf.members(x)
+        #要素xが属するグループに属する要素をリストで返す
+        root = self.find(x)
+        return [i for i in range(self.n) if self.find(i) == root]
+ 
+    def roots(self): #uf.roots()
+        #根となっている要素すべてをリストで返す
+        return [i for i, x in enumerate(self.parents) if x < 0]
+ 
+    def group_count(self): #uf.group_count()
+        #グループの数を返す
+        return len(self.roots())
+ 
+    def all_group_members(self): #uf.all_group_members()
+        #{ルート要素 : [そのグループに含まれる要素のリスト], ...}のdefaultdictを返す
+        group_members = defaultdict(list)
+        for member in range(self.n):
+            group_members[self.find(member)].append(member)
+        return group_members
+ 
+    def __str__(self):
+        return '\n'.join(f'{r}: {m}' for r, m in self.all_group_members().items())
+
+# 使用例:
+# uf = UnionFind(5)        # 0〜4の5要素
+# uf.union(0, 1)           # 0と1を結合
+# uf.union(3, 4)           # 3と4を結合
+# print(uf.same(0, 1))     # True
+# print(uf.same(1, 2))     # False
+# print(uf.size(0))        # 2
+# print(uf.group_count())  # 3（[0,1], [2], [3,4]）</code></pre>
+
+      <h3>4.2. BinaryTrie</h3>
+      <p>ビット単位で数値を管理するトライ木。集合操作やk番目の要素取得、XOR最大値問題などに利用。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>class BinaryTrie:
+    def __init__(self, max_query=2*10**5, bitlen=30):
+        n = max_query * bitlen
+        self.nodes = [-1] * (2 * n)
+        self.cnt = [0] * n
+        self.id = 0
+        self.bitlen = bitlen
+
+    def size(self):
+        return self.cnt[0]
+
+    def count(self,x): #xの個数
+        pt = 0
+        for i in range(self.bitlen-1,-1,-1):
+            y = x>>i&1
+            if self.nodes[2*pt+y] == -1:
+                return 0
+            pt = self.nodes[2*pt+y]
+        return self.cnt[pt]
+
+    def insert(self,x): #xの挿入
+        pt = 0
+        for i in range(self.bitlen-1,-1,-1):
+            y = x>>i&1
+            if self.nodes[2*pt+y] == -1:
+                self.id += 1
+                self.nodes[2*pt+y] = self.id
+            self.cnt[pt] += 1
+            pt = self.nodes[2*pt+y]
+        self.cnt[pt] += 1
+
+    def erase(self,x): #xの削除、xが存在しないときは何もしない
+        if self.count(x) == 0:
+            return
+        pt = 0
+        for i in range(self.bitlen-1,-1,-1):
+            y = x>>i&1
+            self.cnt[pt] -= 1
+            pt = self.nodes[2*pt+y]
+        self.cnt[pt] -= 1
+
+    def kth_elm(self,x): #昇順x番目の値(1-indexed)
+        assert 1 <= x <= self.size()
+        pt, ans = 0, 0
+        for i in range(self.bitlen-1,-1,-1):
+            ans <<= 1
+            if self.nodes[2*pt] != -1 and self.cnt[self.nodes[2*pt]] > 0:
+                if self.cnt[self.nodes[2*pt]] >= x:
+                    pt = self.nodes[2*pt]
+                else:
+                    x -= self.cnt[self.nodes[2*pt]]
+                    pt = self.nodes[2*pt+1]
+                    ans += 1
+            else:
+                pt = self.nodes[2*pt+1]
+                ans += 1
+        return ans
+
+    def lower_bound(self,x): #x以上の最小要素が昇順何番目か(1-indexed)、x以上の要素がない時はsize+1を返す
+        pt, ans = 0, 1
+        for i in range(self.bitlen-1,-1,-1):
+            if pt == -1: break
+            if x>>i&1 and self.nodes[2*pt] != -1:
+                ans += self.cnt[self.nodes[2*pt]]
+            pt = self.nodes[2*pt+(x>>i&1)]
+        return ans
+
+# 使用例:
+# bt = BinaryTrie()
+# bt.insert(5)     # 集合に 5 を追加
+# bt.insert(7)     # 集合に 7 を追加
+# bt.insert(5)     # 5 をもう一度追加（multiset）
+# bt.insert(9)     # 集合に 9 を追加
+# print(bt.count(5))      # → 2
+# print(bt.size())        # → 4（全体の要素数）
+# print(bt.kth_elm(1))    # → 5（1番目）
+# print(bt.lower_bound(6))  # → 3（6以上で最小は 7、3番目）
+# bt.erase(5)         # 5を1つ削除（残り1個）
+# print(bt.count(5))  # → 1</code></pre>
+
+      <h3>4.3. SortedMultiset</h3>
+      <p>ソートされた状態を保つマルチセット（重複を許す集合）。O($\sqrt{N}$) で要素の追加・削除・検索が可能。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from typing import Generic, Iterable, Iterator, TypeVar
+from bisect import bisect_left, bisect_right
+import math
+
+T = TypeVar('T')
+
+class SortedMultiset(Generic[T]):
+    BUCKET_RATIO = 16
+    SPLIT_RATIO = 24
+    
+    def __init__(self, a: Iterable[T] = []) -> None:
+        "Make a new SortedMultiset from iterable. / O(N) if sorted / O(N log N)"
+        a = list(a)
+        n = self.size = len(a)
+        if any(a[i] > a[i + 1] for i in range(n - 1)):
+            a.sort()
+        num_bucket = int(math.ceil(math.sqrt(n / self.BUCKET_RATIO)))
+        self.a = [a[n * i // num_bucket : n * (i + 1) // num_bucket] for i in range(num_bucket)]
+
+    def __iter__(self) -> Iterator[T]:
+        for i in self.a:
+            for j in i: yield j
+
+    def __reversed__(self) -> Iterator[T]:
+        for i in reversed(self.a):
+            for j in reversed(i): yield j
+    
+    def __eq__(self, other) -> bool:
+        return list(self) == list(other)
+    
+    def __len__(self) -> int:
+        return self.size
+    
+    def __repr__(self) -> str:
+        return "SortedMultiset" + str(self.a)
+    
+    def __str__(self) -> str:
+        s = str(list(self))
+        return "{" + s[1 : len(s) - 1] + "}"
+
+    def _position(self, x: T) -> tuple[list[T], int, int]:
+        "return the bucket, index of the bucket and position in which x should be. self must not be empty."
+        for i, a in enumerate(self.a):
+            if x <= a[-1]: break
+        return (a, i, bisect_left(a, x))
+
+    def __contains__(self, x: T) -> bool:
+        if self.size == 0: return False
+        a, _, i = self._position(x)
+        return i != len(a) and a[i] == x
+
+    def count(self, x: T) -> int:
+        "Count the number of x."
+        return self.index_right(x) - self.index(x)
+
+    def add(self, x: T) -> None:
+        "Add an element. / O(√N)"
+        if self.size == 0:
+            self.a = [[x]]
+            self.size = 1
+            return
+        a, b, i = self._position(x)
+        a.insert(i, x)
+        self.size += 1
+        if len(a) > len(self.a) * self.SPLIT_RATIO:
+            mid = len(a) >> 1
+            self.a[b:b+1] = [a[:mid], a[mid:]]
+    
+    def _pop(self, a: list[T], b: int, i: int) -> T:
+        ans = a.pop(i)
+        self.size -= 1
+        if not a: del self.a[b]
+        return ans
+
+    def discard(self, x: T) -> bool:
+        "Remove an element and return True if removed. / O(√N)"
+        if self.size == 0: return False
+        a, b, i = self._position(x)
+        if i == len(a) or a[i] != x: return False
+        self._pop(a, b, i)
+        return True
+
+    def lt(self, x: T) -> T | None:
+        "Find the largest element < x, or None if it doesn't exist."
+        for a in reversed(self.a):
+            if a[0] < x:
+                return a[bisect_left(a, x) - 1]
+
+    def le(self, x: T) -> T | None:
+        "Find the largest element <= x, or None if it doesn't exist."
+        for a in reversed(self.a):
+            if a[0] <= x:
+                return a[bisect_right(a, x) - 1]
+
+    def gt(self, x: T) -> T | None:
+        "Find the smallest element > x, or None if it doesn't exist."
+        for a in self.a:
+            if a[-1] > x:
+                return a[bisect_right(a, x)]
+
+    def ge(self, x: T) -> T | None:
+        "Find the smallest element >= x, or None if it doesn't exist."
+        for a in self.a:
+            if a[-1] >= x:
+                return a[bisect_left(a, x)]
+    
+    def __getitem__(self, i: int) -> T:
+        "Return the i-th element."
+        if i < 0:
+            for a in reversed(self.a):
+                i += len(a)
+                if i >= 0: return a[i]
+        else:
+            for a in self.a:
+                if i < len(a): return a[i]
+                i -= len(a)
+        raise IndexError
+    
+    def pop(self, i: int = -1) -> T:
+        "Pop and return the i-th element."
+        if i < 0:
+            for b, a in enumerate(reversed(self.a)):
+                i += len(a)
+                if i >= 0: return self._pop(a, ~b, i)
+        else:
+            for b, a in enumerate(self.a):
+                if i < len(a): return self._pop(a, b, i)
+                i -= len(a)
+        raise IndexError
+
+    def index(self, x: T) -> int:
+        "Count the number of elements < x."
+        ans = 0
+        for a in self.a:
+            if a[-1] >= x:
+                return ans + bisect_left(a, x)
+            ans += len(a)
+        return ans
+
+    def index_right(self, x: T) -> int:
+        "Count the number of elements <= x."
+        ans = 0
+        for a in self.a:
+            if a[-1] > x:
+                return ans + bisect_right(a, x)
+            ans += len(a)
+        return ans</code></pre>
+
+      <h3>4.4. SortedSet</h3>
+      <p>ソートされた状態を保つセット（重複を許さない集合）。O($\sqrt{N}$) で要素の追加・削除・検索が可能。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>from typing import Generic, Iterable, Iterator, TypeVar
+from bisect import bisect_left, bisect_right
+import math
+
+T = TypeVar('T')
+
+class SortedSet(Generic[T]):
+    BUCKET_RATIO = 16
+    SPLIT_RATIO = 24
+    
+    def __init__(self, a: Iterable[T] = []) -> None:
+        "Make a new SortedSet from iterable. / O(N) if sorted and unique / O(N log N)"
+        a = list(a)
+        n = len(a)
+        if any(a[i] > a[i + 1] for i in range(n - 1)):
+            a.sort()
+        if any(a[i] >= a[i + 1] for i in range(n - 1)):
+            a, b = [], a
+            for x in b:
+                if not a or a[-1] != x:
+                    a.append(x)
+        n = self.size = len(a)
+        num_bucket = int(math.ceil(math.sqrt(n / self.BUCKET_RATIO)))
+        self.a = [a[n * i // num_bucket : n * (i + 1) // num_bucket] for i in range(num_bucket)]
+
+    def __iter__(self) -> Iterator[T]:
+        for i in self.a:
+            for j in i: yield j
+
+    def __reversed__(self) -> Iterator[T]:
+        for i in reversed(self.a):
+            for j in reversed(i): yield j
+    
+    def __eq__(self, other) -> bool:
+        return list(self) == list(other)
+    
+    def __len__(self) -> int:
+        return self.size
+    
+    def __repr__(self) -> str:
+        return "SortedSet" + str(self.a)
+    
+    def __str__(self) -> str:
+        s = str(list(self))
+        return "{" + s[1 : len(s) - 1] + "}"
+
+    def _position(self, x: T) -> tuple[list[T], int, int]:
+        "return the bucket, index of the bucket and position in which x should be. self must not be empty."
+        for i, a in enumerate(self.a):
+            if x <= a[-1]: break
+        return (a, i, bisect_left(a, x))
+
+    def __contains__(self, x: T) -> bool:
+        if self.size == 0: return False
+        a, _, i = self._position(x)
+        return i != len(a) and a[i] == x
+
+    def add(self, x: T) -> bool:
+        "Add an element and return True if added. / O(√N)"
+        if self.size == 0:
+            self.a = [[x]]
+            self.size = 1
+            return True
+        a, b, i = self._position(x)
+        if i != len(a) and a[i] == x: return False
+        a.insert(i, x)
+        self.size += 1
+        if len(a) > len(self.a) * self.SPLIT_RATIO:
+            mid = len(a) >> 1
+            self.a[b:b+1] = [a[:mid], a[mid:]]
+        return True
+    
+    def _pop(self, a: list[T], b: int, i: int) -> T:
+        ans = a.pop(i)
+        self.size -= 1
+        if not a: del self.a[b]
+        return ans
+
+    def discard(self, x: T) -> bool:
+        "Remove an element and return True if removed. / O(√N)"
+        if self.size == 0: return False
+        a, b, i = self._position(x)
+        if i == len(a) or a[i] != x: return False
+        self._pop(a, b, i)
+        return True
+    
+    def lt(self, x: T) -> T | None:
+        "Find the largest element < x, or None if it doesn't exist."
+        for a in reversed(self.a):
+            if a[0] < x:
+                return a[bisect_left(a, x) - 1]
+
+    def le(self, x: T) -> T | None:
+        "Find the largest element <= x, or None if it doesn't exist."
+        for a in reversed(self.a):
+            if a[0] <= x:
+                return a[bisect_right(a, x) - 1]
+
+    def gt(self, x: T) -> T | None:
+        "Find the smallest element > x, or None if it doesn't exist."
+        for a in self.a:
+            if a[-1] > x:
+                return a[bisect_right(a, x)]
+
+    def ge(self, x: T) -> T | None:
+        "Find the smallest element >= x, or None if it doesn't exist."
+        for a in self.a:
+            if a[-1] >= x:
+                return a[bisect_left(a, x)]
+    
+    def __getitem__(self, i: int) -> T:
+        "Return the i-th element."
+        if i < 0:
+            for a in reversed(self.a):
+                i += len(a)
+                if i >= 0: return a[i]
+        else:
+            for a in self.a:
+                if i < len(a): return a[i]
+                i -= len(a)
+        raise IndexError
+    
+    def pop(self, i: int = -1) -> T:
+        "Pop and return the i-th element."
+        if i < 0:
+            for b, a in enumerate(reversed(self.a)):
+                i += len(a)
+                if i >= 0: return self._pop(a, ~b, i)
+        else:
+            for b, a in enumerate(self.a):
+                if i < len(a): return self._pop(a, b, i)
+                i -= len(a)
+        raise IndexError
+    
+    def index(self, x: T) -> int:
+        "Count the number of elements < x."
+        ans = 0
+        for a in self.a:
+            if a[-1] >= x:
+                return ans + bisect_left(a, x)
+            ans += len(a)
+        return ans
+
+    def index_right(self, x: T) -> int:
+        "Count the number of elements <= x."
+        ans = 0
+        for a in self.a:
+            if a[-1] > x:
+                return ans + bisect_right(a, x)
+            ans += len(a)
+        return ans</code></pre>
+
+      <h3>4.5. セグメントツリー (Segment Tree)</h3>
+      <p>区間に対するクエリを高速に処理するデータ構造。結合則を満たす演算であれば適用可能。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>class SegTree:
+    def __init__(self, op, e, n, v=None):
+        self._n = n
+        self._op = op
+        self._e = e
+        self._log = (n - 1).bit_length()
+        self._size = 1 << self._log
+        self._d = [self._e()] * (self._size << 1)
+        if v is not None:
+            for i in range(self._n):
+                self._d[self._size + i] = v[i]
+            for i in range(self._size - 1, 0, -1):
+                self._d[i] = self._op(self._d[i << 1], self._d[i << 1 | 1])
+    
+    def set(self, p, x):
+        p += self._size
+        self._d[p] = x
+        while p:
+            self._d[p >> 1] = self._op(self._d[p], self._d[p ^ 1])
+            p >>= 1
+    
+    def get(self, p):
+        return self._d[p + self._size]
+
+    def prod(self, l, r):
+        sml, smr = self._e(), self._e()
+        l += self._size
+        r += self._size
+        while l < r:
+            if l & 1:
+                sml = self._op(sml, self._d[l])
+                l += 1
+            if r & 1:
+                r -= 1
+                smr = self._op(self._d[r], smr)
+            l >>= 1
+            r >>= 1
+        return self._op(sml, smr)
+    
+    def all_prod(self):
+        return self._d[1]
+
+# 使用例 (加算の場合):
+# st = SegTree(
+#     op = lambda a, b: a + b,       # 加算
+#     e = lambda: 0,                 # 加算の単位元（0）
+#     n = N,                         # 要素数
+#     v = A                          # 初期配列（任意）
+# )
+
+# 使用例 (XORの場合):
+# st = SegTree(
+#     op = lambda a, b: a ^ b,       # XOR（ビットごとの排他的論理和）
+#     e = lambda: 0,                 # XORの単位元（0）
+#     n = N,
+#     v = A
+# )</code></pre>
+
+      <h3>4.6. ダイクストラ法 (Dijkstra's Algorithm)</h3>
+      <p>単一始点最短経路問題に用います。辺の重みが非負である場合に有効です。</p>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import heapq
+
+def dijkstra(edges, num_node):
+    """
+    経路の表現: [終点, 辺の値]。
+    ノードは0からnum_node-1までとする。
+    最短距離だけを返す。
+    """
+    node = [float('inf')] * num_node    #スタート地点以外の値は∞で初期化
+    node[0] = 0     #スタートは0で初期化
+
+    node_name = []
+    heapq.heappush(node_name, [0, 0]) # (距離, ノード)
+
+    while len(node_name) > 0:
+        current_cost, min_point = heapq.heappop(node_name)
+        
+        if current_cost > node[min_point]: # 既に短いパスが見つかっている場合はスキップ
+            continue
+
+        for factor in edges[min_point]:
+            goal = factor[0]   #終点
+            cost  = factor[1]   #コスト
+
+            #更新条件
+            if node[min_point] + cost < node[goal]:
+                node[goal] = node[min_point] + cost     #更新
+                #ヒープに登録
+                heapq.heappush(node_name, [node[min_point] + cost, goal])
+
+    return node
+
+def dijkstra_with_path(edges, num_node, Goal):
+    """
+    経路の表現: [終点, 辺の値]。
+    ノードは0からnum_node-1までとする。
+    ゴールまでの最短経路（道順）とコストを返す。
+    """
+    node = [float('inf')] * num_node    #スタート地点以外の値は∞で初期化
+    node[0] = 0     #スタートは0で初期化
+
+    node_name = []
+    heapq.heappush(node_name, [0, [0]]) # (コスト, パスリスト)
+
+    while len(node_name) > 0:
+        current_cost, min_point = heapq.heappop(node_name)
+        last = min_point[-1]
+
+        if current_cost > node[last]: # 既に短いパスが見つかっている場合はスキップ
+            continue
+
+        if last == Goal:
+            return min_point, node[Goal]  #道順とコストを出力させている
+        
+        #経路の要素を各変数に格納することで，視覚的に見やすくする
+        for factor in edges[last]:
+            goal = factor[0]   #終点
+            cost  = factor[1]   #コスト
+
+            #更新条件
+            if node[last] + cost < node[goal]:
+                node[goal] = node[last] + cost     #更新
+                #ヒープに登録
+                heapq.heappush(node_name, [node[last] + cost, min_point + [goal]])
+
+    return [], float('inf')
+
+# 使用例 (最短距離のみの場合):
+# dist = dijkstra(edges, n)
+# print(dist[goal])
+
+# 使用例 (ルートを復元する場合):
+# path, dist_val = dijkstra_with_path(edges, n, Goal)
+# if path:
+#     print("→".join(map(str, path)))
+#     print(dist_val)
+# else:
+#     print("No path found")</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>5. 定数・その他 (Constants and Others)</h2>
+      <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import string
+
+# 大文字アルファベットのリスト
+ALPHABET = list(string.ascii_uppercase) # ["A", "B", "C", ....]
+
+# 小文字アルファベットのリスト
+alphabet = list(string.ascii_lowercase) # ["a", "b", "c", ....]
+
+# 1桁の数字のリスト (各要素はstr)
+Numbers = list(string.digits) # ["0", "1", "2", ....]
+
+# 座標の移動
+# [0:4]で上右下左の4方向
+dir_x = [0, 1, 0, -1, 1, 1, -1, -1] # x方向の移動
+dir_y = [1, 0, -1, 0, 1, -1, -1, 1] # y方向の移動 (dir_x, dir_yは斜めを含む8方向)
+dx_dy = [[0,1], [1,0], [0,-1], [-1,0]] # 上右下左の4方向の移動量 ([dy, dx]または[dx, dy]かは要確認)
+
+# 無限大
+INF = float('inf')
+
+# 剰余計算の法 (素数)
+MOD1 = 998244353
+MOD2 = 10**9 + 7</code></pre>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const pre = button.parentElement;
+        const code = pre.querySelector('code').innerText;
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+              button.textContent = 'Copy';
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error('Failed to copy text: ', err);
+          });
+      }
+    </script>
+  </body>
+</html>
