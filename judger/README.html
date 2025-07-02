@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICPC 自動ジャッジスクリプト README</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .note {
+            background-color: #e6f7ff;
+            border-left: 5px solid #3399ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #664d03;
+        }
+        .example-block {
+            background-color: #f0f8ff;
+            border-left: 4px solid #a7d9ff;
+            padding: 10px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ICPC 自動ジャッジスクリプト</h1>
+
+        <p>この Bash スクリプトは、ICPC (International Collegiate Programming Contest) の練習用に、解答コードの自動ジャッジを支援します。</p>
+        <p>正解 (AC)、不正解 (WA)、コンパイルエラー (CE)、時間制限超過 (TLE)、メモリ制限超過 (MLE) を自動で判別します。</p>
+
+        <div class="note">
+            <h3>📝 注意事項</h3>
+            <ul>
+                <li><strong>Python における MLE は非対応です。</strong></li>
+                <li><strong>C/C++ における MLE 判定も厳密なメモリ使用量ではなく、システムが提供する概算に基づきます。</strong></li>
+                <li>Windows および Linux OS での動作確認が取れていますが、<strong>macOS では正しく動作しない可能性があります。</strong></li>
+            </ul>
+        </div>
+
+        <h2>📦 設置方法</h2>
+        <p>以下の3つのファイルを、任意の階層下の同じディレクトリに配置してください。</p>
+        <ul>
+            <li><code>src/</code>: ソースコードを格納するディレクトリ</li>
+            <li><code>tests/</code>: テストケース (入力/期待出力) を格納するディレクトリ</li>
+            <li><code>judge.bash</code>: このジャッジスクリプト本体</li>
+        </ul>
+
+        <pre><code>hoge/
+├── src/
+├── tests/
+└── judge.bash
+</code></pre>
+
+        <h2>🚀 使い方</h2>
+
+        <h3>1. 実行権限の付与</h3>
+        <p><code>judge.bash</code> ファイルに実行権限を付与します。<code>hoge/</code> ディレクトリに移動し、以下のコマンドを実行してください。</p>
+        <pre><code>chmod +x judge.bash</code></pre>
+
+        <h3>2. スクリプトの実行</h3>
+        <p><code>hoge/</code> ディレクトリから、ジャッジしたいソースファイル名を引数としてスクリプトを実行します。</p>
+        <pre><code>./judge.bash &lt;ソースファイル名&gt;</code></pre>
+
+        <p>例:</p>
+        <pre><code>./judge.bash a.c
+./judge.bash b.cpp
+./judge.bash c.py
+</code></pre>
+
+        <h2>📂 ファイル構造と命名規則</h2>
+        <p>スクリプトは、ソースコードの拡張子を判別し、<code>tests/</code> ディレクトリに置かれたテストケースに対して、コンパイル（C/C++ のみ）、実行、そして出力結果の比較を行います。</p>
+        <p>テストケースの入力ファイルと期待される出力ファイルには、衝突回避のため以下の命名規則を適用します。</p>
+        <ul>
+            <li><code>(ファイル名).(拡張子)</code> に対応するテストケースは、<code>((ファイル名) + 数字).in</code> を入力データとして、<code>((ファイル名) + 数字).out</code> を期待される出力データとします。</li>
+        </ul>
+
+        <div class="example-block">
+            <h3>例:</h3>
+            <p><strong><code>src/a.py</code> の場合:</strong></p>
+            <pre><code>tests/a001.in
+tests/a001.out
+tests/a002.in
+tests/a002.out
+</code></pre>
+            <p><strong><code>src/b.cpp</code> の場合:</strong></p>
+            <pre><code>tests/b1.in
+tests/b1.out
+tests/b.in
+tests/b.out
+</code></pre>
+        </div>
+
+        <p>テストケースが見つからない場合や、対応する出力ファイルが見つからない場合はスキップされます。</p>
+
+        <h2>✅ 判定結果</h2>
+        <p>スクリプトは以下の結果をターミナルに出力します。</p>
+        <ul>
+            <li><code>[AC]</code>: Accepted (正解)</li>
+            <li><code>[WA]</code>: Wrong Answer (不正解)</li>
+            <li><code>[CE]</code>: Compile Error (コンパイルエラー)</li>
+            <li><code>[TLE]</code>: Time Limit Exceeded (時間制限超過)</li>
+            <li><code>[MLE]</code>: Memory Limit Exceeded (メモリ制限超過) - C/C++のみ概算</li>
+            <li><code>[RE]</code>: Runtime Error (実行時エラー)</li>
+        </ul>
+        <p>各テストケースの実行時間とメモリ使用量（概算）も表示されます。</p>
+    </div>
+</body>
+</html>
